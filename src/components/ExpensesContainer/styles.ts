@@ -5,4 +5,5 @@ export const Container = styled.section`
   width: 100%;
   background: #f9fbfe;
   border-radius: 5px;
+  padding-bottom: 10px;
 `;
