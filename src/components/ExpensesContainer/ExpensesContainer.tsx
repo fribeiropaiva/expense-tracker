@@ -1,6 +1,7 @@
 import Expense from '../../App';
 import { Container } from './styles';
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
+import ExpensesGraph from '../ExpensesGraph/ExpensesGraph';
 
 interface Expense {
   id: number;
@@ -14,18 +15,11 @@ interface ExpensesContainerProps {
 }
 
 function ExpensesContainer({ expenses }: ExpensesContainerProps) {
-  const months = ['Jan', 'Fev', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   return (
     <Container>
       <ExpensesFilter />
-      <div className='expenses__graph'>
-        {months.map(month => (
-          <div className='expenses__graph--bar'>
-            <div className='bar'></div>
-            <span>{month}</span>
-          </div>
-        ))}
-      </div>
+      <ExpensesGraph />
       <div className='expenses__list'>
         {expenses.map(expense => {
           return (
