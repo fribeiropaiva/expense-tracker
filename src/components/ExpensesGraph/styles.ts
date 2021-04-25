@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Graph = styled.div`
   width: 100%;
-  height: 183px;
+  height: 200px;
   display: flex;
   align-items: flex-end;
-  padding: 0 10px 40px;
+  padding: 30px 10px;
 
   .expenses__graph--bar {
     width: 8.33%;
