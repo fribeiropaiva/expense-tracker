@@ -7,7 +7,7 @@ export const Graph = styled.div`
   align-items: flex-end;
   padding: 30px 10px;
   box-shadow: 1px 1px 7px #b6c8e7;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   border-radius: 5px;
 
   .expenses__graph--bar {
