@@ -17,8 +17,8 @@ function ExpenseItem({ expense }: ExpenseItemProps) {
         <p>{year}</p>
         <p>{day}</p>
       </div>
-      <p>{expense.title}</p>
-      <span>{expense.amount}</span>
+      <p className='expense-item__title'>{expense.title}</p>
+      <span className='expense-item__amount'>${expense.amount}</span>
     </Container>
   )
 }

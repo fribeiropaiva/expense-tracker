@@ -6,10 +6,25 @@ export const Container = styled.div`
   box-shadow: 1px 1px 7px #b6c8e7;
   margin: 10px auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   overflow: hidden;
+
+  .expense-item__title {
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 1.6rem;
+  }
+
+  .expense-item__amount {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #363c72;
+    padding: 10px;
+    background: #b6c8e7;
+    border-radius: 5px;
+  }
 
   .expense-item__date {
     width: 150px;
