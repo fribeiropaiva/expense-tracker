@@ -22,6 +22,7 @@ export const Graph = styled.div`
       width: 20px;
       height: 80%;
       background: #00094e;
+      border-bottom: 1px solid #00094e;
     }
   }
 `
