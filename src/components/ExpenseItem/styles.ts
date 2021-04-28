@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
 
   .expense-item__title {
     margin-left: 10px;
@@ -45,5 +46,17 @@ export const Container = styled.div`
     p:nth-child(3) {
       font-size: 1.6rem;
     }
+  }
+
+  .expense-item__removeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2px 9px;
+    background: transparent;
+    border: none;
+    box-shadow: -1px 1px 4px #b6c8e7;
+    color: #b6c8e7;
+    cursor: pointer;
   }
 `;

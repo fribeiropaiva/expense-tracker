@@ -13,10 +13,10 @@ export interface Expense {
 
 interface ExpensesContainerProps {
   expenses: Array<Expense>;
+  handleRemove: (id:string) => void;
 }
 
-function ExpensesContainer({ expenses }: ExpensesContainerProps) {
-
+function ExpensesContainer({ expenses, handleRemove }: ExpensesContainerProps) {
   return (
     <Container>
       <ExpensesFilter />
@@ -24,7 +24,7 @@ function ExpensesContainer({ expenses }: ExpensesContainerProps) {
       <div className='expenses__list'>
         {expenses.length > 0 && expenses.map(expense => {
           return (
-            <ExpenseItem expense={expense} />
+            <ExpenseItem key={expense.id} handleRemove={handleRemove} expense={expense} />
           )
         }
         )}
