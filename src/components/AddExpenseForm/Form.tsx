@@ -12,7 +12,6 @@ function Form({ updateExpensesList, expensesList }: FormProps) {
   const [expenseTitle, setExpenseTitle] = useState('');
   const [expenseAmount, setExpenseAmount] = useState(0);
   const [expenseDate, setExpenseDate] = useState('');
-  const [isValid, setIsValid] = useState(false);
 
   function handleAddNewExpense() {
     setAddingExpense(true);
