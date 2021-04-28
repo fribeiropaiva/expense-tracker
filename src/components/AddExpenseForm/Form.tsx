@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { FormContainer } from './styles';
+import { Expense } from '../ExpensesContainer/ExpensesContainer';
 
-function Form() {
+interface FormProps {
+  updateExpensesList: (expense: Expense) => void;
+}
+
+function Form({ updateExpensesList }: FormProps) {
   const [addingExpense, setAddingExpense] = useState(false);
+  const [expenseTitle, setExpenseTitle] = useState('');
+  const [expenseAmount, setExpenseAmount] = useState(0);
+  const [expenseDate, setExpenseDate] = useState('');
 
   function handleAddNewExpense() {
     setAddingExpense(true);
@@ -12,24 +20,62 @@ function Form() {
     setAddingExpense(false);
   }
 
+  function handleChangeTitle(event: React.ChangeEvent<HTMLInputElement>) {
+    setExpenseTitle(event.target.value);
+  }
+
+  function handleChangeAmount(event: React.ChangeEvent<HTMLInputElement>) {
+    setExpenseAmount(Number(event.target.value));
+  }
+
+  function handleChangeDate(event: React.ChangeEvent<HTMLInputElement>) {
+    setExpenseDate(event.target.value);
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const expense = {
+      title: expenseTitle,
+      amount: expenseAmount,
+      date: expenseDate,
+      id: expenseTitle
+    }
+
+    updateExpensesList(expense);
+
+  }
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
       {addingExpense ?
       <>
         <label>
           <span>Title</span>
-          <input />
+          <input
+            type='text'
+            value={expenseTitle}
+            onChange={handleChangeTitle}
+            />
         </label>
         <label>
           <span>Amount</span>
-          <input />
+          <input
+            type='number'
+            value={expenseAmount}
+            onChange={handleChangeAmount}
+            />
         </label>
         <label>
           <span>Date</span>
-          <input />
+          <input
+            type='date'
+            value={expenseDate}
+            onChange={handleChangeDate}
+            />
         </label>
         <div className='adding-expense-buttons'>
-          <button type='button'>Add Expense</button>
+          <button type='submit'>Add Expense</button>
           <button type='button' onClick={handleCancel}>Cancel</button>
         </div>
       </>

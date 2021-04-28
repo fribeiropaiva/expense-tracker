@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { GlobalStyles } from './globalStyles';
 import Form from './components/AddExpenseForm/Form';
 import ExpensesContainer from './components/ExpensesContainer/ExpensesContainer';
+import { Expense } from './components/ExpensesContainer/ExpensesContainer';
 
 
 function App() {
@@ -26,11 +28,17 @@ function App() {
     },
   ];
 
+  const [expensesList, setExpensesList] = useState<Expense[]>([]);
+
+  function updateExpensesList(newExpense: Expense) {
+    setExpensesList((expensesList: Expense[]) => [...expensesList, newExpense]);
+  }
+
   return (
     <>
       <main className='expense-tracker__container'>
-        <Form />
-        <ExpensesContainer expenses={expenses} />
+        <Form updateExpensesList={updateExpensesList}/>
+        <ExpensesContainer expenses={expensesList} />
       </main>
       <GlobalStyles />
     </>

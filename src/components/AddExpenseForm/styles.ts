@@ -31,6 +31,10 @@ export const FormContainer = styled.form`
       &:focus {
         outline: none;
       }
+
+      &[type=date] {
+        padding: 8px;
+      }
     }
   }
 

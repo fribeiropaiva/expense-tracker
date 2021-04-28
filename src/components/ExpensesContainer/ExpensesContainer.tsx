@@ -5,10 +5,10 @@ import ExpensesGraph from '../ExpensesGraph/ExpensesGraph';
 import ExpenseItem from '../ExpenseItem/ExpenseItem';
 
 export interface Expense {
-  id: number;
+  id: string;
   title: string;
   amount: number;
-  date: Date;
+  date: string;
 }
 
 interface ExpensesContainerProps {
@@ -22,7 +22,7 @@ function ExpensesContainer({ expenses }: ExpensesContainerProps) {
       <ExpensesFilter />
       <ExpensesGraph />
       <div className='expenses__list'>
-        {expenses.map(expense => {
+        {expenses.length > 0 && expenses.map(expense => {
           return (
             <ExpenseItem expense={expense} />
           )

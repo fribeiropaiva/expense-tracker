@@ -6,9 +6,11 @@ interface ExpenseItemProps {
 }
 
 function ExpenseItem({ expense }: ExpenseItemProps) {
-  const month = expense.date.toLocaleString('en-US', { month: 'long'});
-  const day = expense.date.toLocaleString('en-US', { day: '2-digit'});
-  const year = expense.date.getFullYear();
+  const expenseDate = new Date(expense.date);
+  console.log(expenseDate)
+  const month = expenseDate.toLocaleString('en-US', { month: 'long'});
+  const day = expenseDate.toLocaleString('en-US', { day: '2-digit'});
+  const year = expenseDate.getFullYear();
 
   return (
     <Container key={expense.id}>
