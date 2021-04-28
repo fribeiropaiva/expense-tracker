@@ -12,6 +12,7 @@ function Form({ updateExpensesList, expensesList }: FormProps) {
   const [expenseTitle, setExpenseTitle] = useState('');
   const [expenseAmount, setExpenseAmount] = useState(0);
   const [expenseDate, setExpenseDate] = useState('');
+  const [isValid, setIsValid] = useState(false);
 
   function handleAddNewExpense() {
     setAddingExpense(true);
@@ -78,7 +79,7 @@ function Form({ updateExpensesList, expensesList }: FormProps) {
             />
         </label>
         <div className='adding-expense-buttons'>
-          <button type='submit'>Add Expense</button>
+          <button type='submit' disabled={!(expenseAmount && expenseTitle && expenseDate)}>Add Expense</button>
           <button type='button' onClick={handleCancel}>Cancel</button>
         </div>
       </>

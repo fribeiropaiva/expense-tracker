@@ -65,5 +65,9 @@ export const FormContainer = styled.form`
       margin: 0 auto;
       padding: 30px;
     }
+
+    &:disabled {
+      background: gray;
+    }
   }
 `
