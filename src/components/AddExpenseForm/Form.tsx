@@ -4,9 +4,10 @@ import { Expense } from '../ExpensesContainer/ExpensesContainer';
 
 interface FormProps {
   updateExpensesList: (expense: Expense) => void;
+  expensesList: Expense[];
 }
 
-function Form({ updateExpensesList }: FormProps) {
+function Form({ updateExpensesList, expensesList }: FormProps) {
   const [addingExpense, setAddingExpense] = useState(false);
   const [expenseTitle, setExpenseTitle] = useState('');
   const [expenseAmount, setExpenseAmount] = useState(0);
@@ -39,10 +40,12 @@ function Form({ updateExpensesList }: FormProps) {
       title: expenseTitle,
       amount: expenseAmount,
       date: expenseDate,
-      id: expenseTitle
+      id: expenseTitle+expenseAmount+expenseDate
     }
 
-    updateExpensesList(expense);
+    const repeatedExpense = expensesList.filter(createdExpense => createdExpense.id === expense.id);
+
+    if (!repeatedExpense.length) updateExpensesList(expense);
 
   }
 

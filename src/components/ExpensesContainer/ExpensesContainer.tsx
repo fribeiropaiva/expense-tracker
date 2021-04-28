@@ -24,7 +24,7 @@ function ExpensesContainer({ expenses, handleRemove }: ExpensesContainerProps) {
       <div className='expenses__list'>
         {expenses.length > 0 && expenses.map(expense => {
           return (
-            <ExpenseItem key={expense.id} handleRemove={handleRemove} expense={expense} />
+            <ExpenseItem key={`${expense.id} - ${expense.date}`} handleRemove={handleRemove} expense={expense} />
           )
         }
         )}

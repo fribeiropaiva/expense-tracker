@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <main className='expense-tracker__container'>
-        <Form updateExpensesList={updateExpensesList}/>
+        <Form expensesList={expensesList} updateExpensesList={updateExpensesList}/>
         <ExpensesContainer handleRemove={handleRemove} expenses={expensesList} />
       </main>
       <GlobalStyles />
