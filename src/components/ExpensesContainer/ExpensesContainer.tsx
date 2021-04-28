@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Expense from '../../App';
 import { Container } from './styles';
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
@@ -17,12 +18,19 @@ interface ExpensesContainerProps {
 }
 
 function ExpensesContainer({ expenses, handleRemove }: ExpensesContainerProps) {
+  const [filteredYear, setFilteredYear] = useState('2021');
+
+  const filteredExpenses = expenses.filter(expense => {
+    const expenseYear = new Date(expense.date);
+    return '' + expenseYear.getFullYear() == filteredYear;
+  });
+
   return (
     <Container>
-      <ExpensesFilter />
+      <ExpensesFilter setFilteredYear={setFilteredYear} />
       <ExpensesGraph />
       <div className='expenses__list'>
-        {expenses.length > 0 && expenses.map(expense => {
+        {filteredExpenses.length > 0 && filteredExpenses.map(expense => {
           return (
             <ExpenseItem key={`${expense.id} - ${expense.date}`} handleRemove={handleRemove} expense={expense} />
           )

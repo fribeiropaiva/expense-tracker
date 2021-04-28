@@ -1,10 +1,15 @@
 import { FilterContainer } from './styles';
+import { ChangeEvent } from 'react';
 
-function ExpensesFilter() {
+type FilterProps = {
+  setFilteredYear: (year:string) => void;
+}
+
+function ExpensesFilter({ setFilteredYear }: FilterProps) {
   return (
     <FilterContainer>
       <p>Filter by year</p>
-      <select>
+      <select onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilteredYear(e.target.value)}>
         <option>2021</option>
         <option>2020</option>
         <option>2019</option>
