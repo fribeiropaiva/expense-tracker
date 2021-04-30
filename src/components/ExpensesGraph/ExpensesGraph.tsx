@@ -12,26 +12,31 @@ function ExpensesGraph({ expenses }: ExpensesGraphProps) {
   }, 0);
 
   function getMonthPercentage(expenseMonth:string) {
-    let totalOnMonth = 0;
+    let amountAndPercentage = {
+      amount: 0,
+      percentage: 0
+    };
     const expensesOnMonth = expenses.filter(expense => {
       return new Date(expense.date).toLocaleString('en-US', { month: 'short'}) === expenseMonth
     })
 
     if (expensesOnMonth.length) {
-      totalOnMonth = expensesOnMonth.reduce((acm, current) => { return acm + current.amount }, 0);
-      return (totalOnMonth * 100)/total;
+      amountAndPercentage.amount = expensesOnMonth.reduce((acm, current) => { return acm + current.amount }, 0);
+      amountAndPercentage.percentage = (amountAndPercentage.amount * 100)/total;
+      return amountAndPercentage
     }
 
-    return totalOnMonth;
+    return amountAndPercentage;
   }
 
   return (
     <Graph>
       {months.map((month, idx) => {
-        const graphHeight = getMonthPercentage(month);
+        const amountAndPercentage = getMonthPercentage(month);
         return (
           <div key={month+'-bar'} className='expenses__graph--bar'>
-            <div className='bar' style={{height: graphHeight}}></div>
+            <span>${amountAndPercentage.amount}</span>
+            <div className='bar' style={{height: amountAndPercentage.percentage}}></div>
             <span>{month}</span>
           </div>
         )
