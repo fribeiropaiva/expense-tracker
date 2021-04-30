@@ -28,7 +28,7 @@ function ExpensesContainer({ expenses, handleRemove }: ExpensesContainerProps) {
   return (
     <Container>
       <ExpensesFilter setFilteredYear={setFilteredYear} />
-      <ExpensesGraph />
+      <ExpensesGraph expenses={filteredExpenses} />
       <div className='expenses__list'>
         {filteredExpenses.length > 0 && filteredExpenses.map(expense => {
           return (
