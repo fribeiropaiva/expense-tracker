@@ -1,18 +1,24 @@
 import { FilterContainer } from './styles';
 import { ChangeEvent } from 'react';
+import { Expense } from '../ExpensesContainer/ExpensesContainer';
 
 type FilterProps = {
   setFilteredYear: (year:string) => void;
+  expenses: Expense[];
 }
 
-function ExpensesFilter({ setFilteredYear }: FilterProps) {
+function ExpensesFilter({ setFilteredYear, expenses }: FilterProps) {
+  const years = expenses.map(expense => new Date(expense.date).getFullYear());
+  const uniqueYears = Array.from(new Set<number>(years)).sort((a, b) => b - a);
+  console.log(uniqueYears)
+
   return (
     <FilterContainer>
       <p>Filter by year</p>
       <select onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilteredYear(e.target.value)}>
-        <option>2021</option>
-        <option>2020</option>
-        <option>2019</option>
+        {uniqueYears.map(year => {
+          return <option>{year}</option>
+        })}
       </select>
     </FilterContainer>
   );
