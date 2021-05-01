@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Graph } from './styles';
 import { Expense } from '../ExpensesContainer/ExpensesContainer';
 
@@ -6,6 +7,8 @@ interface ExpensesGraphProps {
 }
 
 function ExpensesGraph({ expenses }: ExpensesGraphProps) {
+  const [graphFilterOption, setGraphFilterOption] = useState('percentage');
+
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const total = expenses.reduce((acm, current) => {
     return acm + current.amount
@@ -31,11 +34,15 @@ function ExpensesGraph({ expenses }: ExpensesGraphProps) {
 
   return (
     <Graph>
+      <div className='expenses-graph__filter'>
+        <button className={graphFilterOption === 'percentage' ? 'active' : ''} onClick={() => setGraphFilterOption('percentage')}>Percentage</button>
+        <button className={graphFilterOption === 'amount' ? 'active' : ''} onClick={() => setGraphFilterOption('amount')}>Amount</button>
+      </div>
       {months.map((month, idx) => {
         const amountAndPercentage = getMonthPercentage(month);
         return (
           <div key={month+'-bar'} className='expenses__graph--bar'>
-            <span>${amountAndPercentage.amount}</span>
+            <span>{graphFilterOption === 'percentage' ? amountAndPercentage.percentage.toFixed(2) + '%' : '$' + amountAndPercentage.amount.toFixed(2)}</span>
             <div className='bar' style={{height: amountAndPercentage.percentage}}></div>
             <span>{month}</span>
           </div>
