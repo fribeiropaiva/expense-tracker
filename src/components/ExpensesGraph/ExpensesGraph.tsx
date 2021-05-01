@@ -38,7 +38,7 @@ function ExpensesGraph({ expenses }: ExpensesGraphProps) {
         <button className={graphFilterOption === 'percentage' ? 'active' : ''} onClick={() => setGraphFilterOption('percentage')}>Percentage</button>
         <button className={graphFilterOption === 'amount' ? 'active' : ''} onClick={() => setGraphFilterOption('amount')}>Amount</button>
       </div>
-      {months.map((month, idx) => {
+      {months.map((month) => {
         const amountAndPercentage = getMonthPercentage(month);
         return (
           <div key={month+'-bar'} className='expenses__graph--bar'>
