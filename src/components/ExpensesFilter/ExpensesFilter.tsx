@@ -10,7 +10,6 @@ type FilterProps = {
 function ExpensesFilter({ setFilteredYear, expenses }: FilterProps) {
   const years = expenses.map(expense => new Date(expense.date).getFullYear());
   const uniqueYears = Array.from(new Set<number>(years)).sort((a, b) => b - a);
-  console.log(uniqueYears)
 
   return (
     <FilterContainer>
