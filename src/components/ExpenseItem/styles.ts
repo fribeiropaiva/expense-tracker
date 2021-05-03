@@ -15,6 +15,8 @@ export const Container = styled.div`
     margin-left: 10px;
     margin-right: auto;
     font-size: 1.6rem;
+    overflow: scroll;
+    white-space: nowrap;
   }
 
   .expense-item__amount {
@@ -25,6 +27,10 @@ export const Container = styled.div`
     padding: 10px;
     background: #b6c8e7;
     border-radius: 5px;
+    max-width: 150px;
+    overflow: scroll;
+    flex-shrink: 0;
+    margin-left: 10px;
   }
 
   .expense-item__date {
@@ -37,6 +43,7 @@ export const Container = styled.div`
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 600;
+    flex-shrink: 0;
 
     @media (max-width: 480px) {
       width: 6.3rem;
