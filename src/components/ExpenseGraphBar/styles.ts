@@ -7,7 +7,11 @@ export const BarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  font-size: 0.8rem;
+  font-size: 1rem;
+
+  @media (max-width: 720px) {
+    font-size: 0.8rem;
+  }
 
   @media (max-width: 480px) {
     font-size: 0.5rem;
