@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Graph } from './styles';
 import { Expense } from '../ExpensesContainer/ExpensesContainer';
+import ExpenseGraphBar from '../ExpenseGraphBar/ExpenseGraphBar';
 
 interface ExpensesGraphProps {
   expenses: Expense[];
@@ -41,11 +42,7 @@ function ExpensesGraph({ expenses }: ExpensesGraphProps) {
       {months.map((month) => {
         const amountAndPercentage = getMonthPercentage(month);
         return (
-          <div key={month+'-bar'} className='expenses__graph--bar'>
-            <span>{graphFilterOption === 'percentage' ? amountAndPercentage.percentage.toFixed(2) + '%' : '$' + amountAndPercentage.amount.toFixed(2)}</span>
-            <div className='bar' style={{height: amountAndPercentage.percentage}}></div>
-            <span>{month}</span>
-          </div>
+          <ExpenseGraphBar key={month +'-bar'} month={month} amountAndPercentage={amountAndPercentage} graphFilterOption={graphFilterOption} />
         )
       })}
     </Graph>

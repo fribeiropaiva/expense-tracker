@@ -16,7 +16,7 @@ function ExpensesFilter({ setFilteredYear, expenses }: FilterProps) {
       <p>Filter by year</p>
       <select onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilteredYear(e.target.value)}>
         {uniqueYears.map(year => {
-          return <option>{year}</option>
+          return <option key={year}>{year}</option>
         })}
       </select>
     </FilterContainer>
