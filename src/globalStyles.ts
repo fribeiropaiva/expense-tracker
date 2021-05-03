@@ -21,9 +21,21 @@ export const GlobalStyles = createGlobalStyle`
     justify-content: center;
   }
 
+  @media (max-width: 1080px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media (max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
+
   .expense-tracker__container {
     width: 100%;
-    max-width: 1120px;
+    max-width: 1080px;
     height: 900px;
   }
 

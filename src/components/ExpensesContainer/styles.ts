@@ -6,4 +6,8 @@ export const Container = styled.section`
   background: #f9fbfe;
   border-radius: 5px;
   padding-bottom: 10px;
+
+  @media (max-width: 1080px) {
+    border-radius: unset;
+  }
 `;

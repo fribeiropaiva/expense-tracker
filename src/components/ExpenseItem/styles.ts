@@ -28,7 +28,7 @@ export const Container = styled.div`
   }
 
   .expense-item__date {
-    width: 150px;
+    width: 9.3rem;
     height: 100%;
     background: #b6c8e7;
     display: flex;
@@ -37,6 +37,11 @@ export const Container = styled.div`
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 600;
+
+    @media (max-width: 480px) {
+      width: 6.3rem;
+      font-size: 1rem;
+    }
 
     p:nth-child(2) {
       font-size: 0.9rem;

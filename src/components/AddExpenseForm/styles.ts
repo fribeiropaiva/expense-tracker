@@ -10,6 +10,10 @@ export const FormContainer = styled.form`
   position: relative;
   flex-wrap: wrap;
 
+  @media (max-width: 1080px) {
+    border-radius: unset;
+  }
+
   label {
     margin-right: 45px;
     display: flex;
@@ -36,6 +40,16 @@ export const FormContainer = styled.form`
         padding: 8px;
       }
     }
+
+    @media (max-width: 480px) {
+      span {
+        font-size: 1.2rem;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
   }
 
   .adding-expense-buttons {
@@ -45,8 +59,11 @@ export const FormContainer = styled.form`
     right: 10px;
     display: flex;
     justify-content: space-around;
-    width: 320px;
-    transition: 1s;
+    width: 20rem;
+
+    @media (max-width: 480px) {
+      width: 16rem;
+    }
   }
 
   button {
@@ -59,6 +76,10 @@ export const FormContainer = styled.form`
     border: none;
     background: #6378e0;
     color: #f9fbfe;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
 
     &.add-new-expense {
       align-self: center;
