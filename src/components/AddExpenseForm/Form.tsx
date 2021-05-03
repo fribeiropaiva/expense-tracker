@@ -67,6 +67,9 @@ function Form({ updateExpensesList, expensesList }: FormProps) {
             type='number'
             value={expenseAmount}
             onChange={handleChangeAmount}
+            step='0.01'
+            min='0'
+            max='999999999.99'
             />
         </label>
         <label>
