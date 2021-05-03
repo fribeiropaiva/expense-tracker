@@ -15,8 +15,13 @@ export const Container = styled.div`
     margin-left: 10px;
     margin-right: auto;
     font-size: 1.6rem;
-    overflow: scroll;
+    overflow-x: scroll;
     white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
 
   .expense-item__amount {
@@ -28,9 +33,14 @@ export const Container = styled.div`
     background: #b6c8e7;
     border-radius: 5px;
     max-width: 150px;
-    overflow: scroll;
+    overflow-x: scroll;
     flex-shrink: 0;
     margin-left: 10px;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
 
   .expense-item__date {
