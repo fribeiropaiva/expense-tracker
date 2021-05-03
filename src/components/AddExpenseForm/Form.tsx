@@ -46,7 +46,6 @@ function Form({ updateExpensesList, expensesList }: FormProps) {
     const repeatedExpense = expensesList.filter(createdExpense => createdExpense.id === expense.id);
 
     if (!repeatedExpense.length) updateExpensesList(expense);
-
   }
 
   return (
