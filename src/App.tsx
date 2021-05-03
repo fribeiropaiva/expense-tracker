@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GlobalStyles } from './globalStyles';
 import Form from './components/AddExpenseForm/Form';
 import ExpensesContainer from './components/ExpensesContainer/ExpensesContainer';
 import { Expense } from './components/ExpensesContainer/ExpensesContainer';
 
 function App() {
-  const [expensesList, setExpensesList] = useState<Expense[]>(() => {
+  const [expensesList, setExpensesList] = useState<Expense[] | []>([]);
+
+  useEffect(() =>{
     let cachedData = null;
 
     try {
@@ -14,8 +16,8 @@ function App() {
       console.error('Error in getting data from cache.', e);
     }
 
-    return cachedData ? JSON.parse(cachedData) : [];
-  });
+    if (cachedData) setExpensesList(JSON.parse(cachedData));
+  }, []);
 
   function updateLocalStorage(updatedData: Expense[]) {
     const cacheKey = 'expense-tracker';
