@@ -9,6 +9,13 @@ export const BarContainer = styled.div`
   justify-content: flex-end;
   font-size: 1rem;
 
+  span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
   @media (max-width: 720px) {
     font-size: 0.8rem;
   }
